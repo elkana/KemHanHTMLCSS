@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'KemHanFont-Black'; /*a name to be used later*/
+    src: url('/fonts/DINPro-Black.otf'); /*URL to font*/
+}
+@font-face {
+    font-family: 'KemHanFont-Regular'; /*a name to be used later*/
+    src: url('/fonts/DINPro-Regular.otf'); /*URL to font*/
+}
+
+.body{
+	font-family:KemHanFont-Regular;
+}
+
+.container-fluid{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.header-bg{
+	padding: 10px;
+	background-color:#685c54;
+	color: white;
+}
+
+.header-ttl{
+	color: white;
+}
+
+.gradient-line{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#534741+1,534741+21,898989+50,534741+77,534741+100 */
+	background: #534741; /* Old browsers */
+	background: -moz-linear-gradient(left,  #534741 1%, #534741 21%, #898989 50%, #534741 77%, #534741 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #534741 1%,#534741 21%,#898989 50%,#534741 77%,#534741 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #534741 1%,#534741 21%,#898989 50%,#534741 77%,#534741 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#534741', endColorstr='#534741',GradientType=1 ); /* IE6-9 */
+}
+
+.bar { 
+	color:white; 
+	font-size: 20px; 
+}
+
+

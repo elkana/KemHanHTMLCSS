@@ -1,0 +1,13 @@
+
+<!--<div ng-controller="myController" id="leftpanel" style="position:fixed;left:0;width:200px;background-color:#865e40;color:white;height:100%;min-height:800px;overflow: auto">-->
+<div ng-controller="homeController" id="leftpanel">
+
+    <ul class="nav">
+	    <li ng-repeat="menu in menuleft" id="groupitem" data-toggle="collapse" aria-expanded="false" data-target="sub_menu1">{{ menu.group }}
+			<ul class="nav list-group-submenu" id="sub_menu1" role="menu">
+				<li ng-repeat="sub in menu.subitems"><a href="#">{{ sub.name }}</a></li>
+			</ul>
+		</li>
+	</ul>	
+
+</div>

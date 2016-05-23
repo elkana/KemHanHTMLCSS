@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Portal Kementrian Pertahanan</title>
+<!--  bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
+<!--  endbower -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+<link rel="stylesheet" href="styles/default.css" />
+<link rel="stylesheet" href="styles/menu-left.css" />
+<link rel="stylesheet" href="styles/menu-top.css" />
+  
+</head>
+<body ng-app="homeApp">
+	<div class="container-fluid">
+		<div ng-include src="'app/header.htm'" ></div>
+		<div ng-include src="'app/menu-top.htm'" ></div>
+
+		<div class="row"></div>
+		<div class="row">
+			<div class="col-xs-6 col-md-3 col-lg-2">
+				<div ng-include src="'app/menu-left.htm'"></div>
+			</div>
+			<div class="col-xs-6 col-md-9 col-lg-10">
+				<div ng-include src="'app/page-search.htm'"></div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!--  bower:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+	<script src="bower_components/angular.treeview/angular.treeview.js"></script>
+	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+	<script src="bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
+	<!--  endbower -->
+	
+	<!-- inject:js -->
+    <!-- endinject -->
+	<script>
+  //angular module
+  var myApp = angular.module('homeApp', ['angularTreeview']);
+
+  //test controller
+  myApp.controller('homeController', function($scope){
+	$scope.menuleft = [
+		{"group" : "Collection", "subitems" : [
+			{"id": 1, "name" : "Janes", "url" : "#"},
+			{"id": 2, "name" : "Global Security", "url" : "#"},
+			{"id": 3, "name" : "FAS", "url" : "#"}
+			]
+		},
+		{"group" : "Type", "subitems" : [
+			{"id": 11, "name" : "Land", "url" : "#"},
+			{"id": 12, "name" : "Air", "url" : "#"},
+			{"id": 13, "name" : "Sea", "url" : "#"}
+			]
+		},
+		{"group" : "SubType", "subitems" : [
+			{"id": 41, "name" : "Ship", "url" : "#"},
+			{"id": 42, "name" : "Tank", "url" : "#"}
+			]
+		},
+		{"group" : "Qualities", "subitems" : [
+			{"id": 51, "name" : "Firepower", "url" : "#"},
+			{"id": 52, "name" : "Armament", "url" : "#"}
+			]
+		}
+	];
+	
+	 $scope.alert = function(){
+                    alert("Hello");
+                }
+    
+  });
+  
+	</script>
+</body>
+</html>

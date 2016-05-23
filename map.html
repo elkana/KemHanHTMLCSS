@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Portal Kementrian Pertahanan</title>
+<!--  bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
+<!--  endbower -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+<link rel="stylesheet" href="styles/default.css" />
+<link rel="stylesheet" href="styles/menu-top.css" />
+
+<style>
+.layerPanel{
+	background-color:#FF0000;
+}
+.layerPanel tr td {
+	font-size: 11px;
+	color:#000;
+	font-weight:normal;
+	border: thin solid #CCC;
+	text-align: center;	
+}
+.layerPanel .ticketdtl-table tr .summary-header {
+	font-weight: bold;
+	font-size: 12px;
+	background-color: #FFC;
+}
+
+.layerPanel{
+	color:#000;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+</style>  
+</head>
+<body ng-app="mapApp">
+	<div id="popupPanel">
+	</div>
+
+	<div class="container-fluid">
+		<div ng-include src="'app/header.htm'" ></div>
+		<div ng-include src="'app/menu-top.htm'" ></div>
+
+		<!-- <div ng-include src="'app/page-map.htm'" ></div> -->
+		<div ng-controller="mapController" style="margin-left:6em;margin-top:2em;width:80%">
+			<div class="row">
+				<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model" style="display:inline-block"></div>	
+
+				<div class="input-group changethisone" style="width:220px;color:black;float:right">
+					<input type="text"  class="form-control" placeholder="quick search"/>
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-search"></i>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<img src="/images/map-dummy.jpg" style="width:100%">
+			</div>
+		</div>
+	</div>
+	
+
+	<!--  bower:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+	<script src="bower_components/angular.treeview/angular.treeview.js"></script>
+	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+	<script src="bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
+	<!--  endbower -->
+	
+	<!-- inject:js -->
+    <!-- endinject -->
+<script>
+	var cTemplates = {
+				div: $('<div class="layerPanel"></div>'),
+		        table  : $('<table class="customTable" width="100%"></table>'),
+		        colHeader : $('<td colspan="6" class="summary-header"></td>'),
+		        row : $('<tr></tr>'),
+		        data : $('<td></td>'),
+		        dataBlank : $('<td>&nbsp;</td>'),
+		        emptyLine : $('<tr><td colspan="6">&nbsp;</td></tr>'),
+			}
+		;
+
+	function buildLayer(){
+		var div = cTemplates.div.clone(),
+			tableLayer = cTemplates.table.clone(),
+			layerHeader = cTemplates.colHeader.clone()
+		;
+		div.text('Please select a valid schedule.');
+		
+		layerHeader.text("Elkana");
+		layerHeader.appendTo(tableLayer);
+		
+		tableLayer.appendTo(div);
+		$('#popupFare').html(div);
+	}
+	
+	// buildLayer();
+	// $("#popupFare").dialog({autoOpen : true, modal : false, show : "blind", hide : "blind"});
+
+  //angular module
+  var myApp = angular.module('mapApp', ['angularjs-dropdown-multiselect']);
+
+  //test controller
+  myApp.controller('mapController', function($scope){
+	$scope.example1model = [{id: 1}];
+	$scope.example1data = [ {id: 1, label: "Range"}, {id: 2, label: "Coordinates"}, {id: 3, label: "Wind Direction"}];
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "marklogic-kemhan",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "jquery-ui": "^1.11.4",
+    "bootstrap-css": "^3.3.6",
+    "angular.treeview": "*",
+    "angularjs-dropdown-multiselect": "^1.5.2"
+  }
+}
