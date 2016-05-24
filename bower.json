@@ -17,6 +17,7 @@
     "jquery-ui": "^1.11.4",
     "bootstrap-css": "^3.3.6",
     "angular.treeview": "*",
-    "angularjs-dropdown-multiselect": "^1.5.2"
+    "angularjs-dropdown-multiselect": "^1.5.2",
+    "ng-popup": "^0.5.0"
   }
 }

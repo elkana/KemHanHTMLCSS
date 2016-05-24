@@ -5,6 +5,7 @@
 <title>Portal Kementrian Pertahanan</title>
 <!--  bower:css -->
 <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
+<link rel="stylesheet" href="bower_components/ng-popup/dist/ngPopup.min.css" />
 <!--  endbower -->
 
   <!-- inject:css -->
@@ -12,6 +13,7 @@
 
 <link rel="stylesheet" href="styles/default.css" />
 <link rel="stylesheet" href="styles/menu-top.css" />
+<link rel="stylesheet" href="styles/icons.css" />
 
 <style>
 .layerPanel{
@@ -46,22 +48,8 @@
 		<div ng-include src="'app/header.htm'" ></div>
 		<div ng-include src="'app/menu-top.htm'" ></div>
 
-		<!-- <div ng-include src="'app/page-map.htm'" ></div> -->
-		<div ng-controller="mapController" style="margin-left:6em;margin-top:2em;width:80%">
-			<div class="row">
-				<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model" style="display:inline-block"></div>	
-
-				<div class="input-group changethisone" style="width:220px;color:black;float:right">
-					<input type="text"  class="form-control" placeholder="quick search"/>
-					<span class="input-group-addon">
-						<i class="glyphicon glyphicon-search"></i>
-					</span>
-				</div>
-			</div>
-			<div class="row">
-				<img src="/images/map-dummy.jpg" style="width:100%">
-			</div>
-		</div>
+		<div ng-include src="'app/page-map.htm'" ></div>
+		
 	</div>
 	
 
@@ -74,6 +62,7 @@
 	<script src="bower_components/angular.treeview/angular.treeview.js"></script>
 	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
 	<script src="bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
+	<script src="bower_components/ng-popup/dist/ngPopup.min.js"></script>
 	<!--  endbower -->
 	
 	<!-- inject:js -->
@@ -108,12 +97,37 @@
 	// $("#popupFare").dialog({autoOpen : true, modal : false, show : "blind", hide : "blind"});
 
   //angular module
-  var myApp = angular.module('mapApp', ['angularjs-dropdown-multiselect']);
+  var myApp = angular.module('mapApp', ['angularjs-dropdown-multiselect', 'ngPopup']);
 
   //test controller
   myApp.controller('mapController', function($scope){
 	$scope.example1model = [{id: 1}];
 	$scope.example1data = [ {id: 1, label: "Range"}, {id: 2, label: "Coordinates"}, {id: 3, label: "Wind Direction"}];
+	
+	$scope.ngPopupConfig = {
+		modelName: "myNgPopup",
+		width: 300,
+		height:400,
+		template:"<div></div>",
+		resizable:false,
+		draggable:true,
+		position: { top : 100, left : 500},
+		title : "Detail",
+			hasTitleBar : true,  
+			pinned : false,
+			isShow : true,
+			onOpen : function(){},
+			onClose  : function(){},
+			onDragStart : function(){},
+			onDragEnd : function(){},
+			onResize : function(){}
+	}
+	
+	$scope.toggleBomber = function(){
+		$scope.ngPopupConfig.template = "<div>Detail</div>";
+		$scope.ngPopupConfig.isShow = true;
+	}
+	
   });
 </script>
 

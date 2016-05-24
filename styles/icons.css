@@ -1,0 +1,133 @@
+.military{
+		background: url(../images/sprite_kemhan.png) no-repeat; 
+        width: 68px; 
+        height: 68px; 
+		display: inline-block;
+}
+
+.civilian{
+	background-position:-69px 0
+}
+.drone{
+	background-position:-69px -69px
+}
+.cargo{
+	background-position:-69px -136px
+}
+.helicopter{
+	background-position:-69px -204px
+}
+.attack-heli{
+	background-position:-69px -272px
+}
+.bomber{
+	background-position:-69px -340px
+}
+.fighter{
+	background-position:-69px -408px
+}
+.tanker{
+	background-position:-69px -475px
+}
+.civilian:hover{
+	background-position:0 0
+}
+.drone:hover{
+	background-position:0 -69px
+}
+.cargo:hover{
+	background-position:0 -136px
+}
+.helicopter:hover{
+	background-position:0 -204px
+}
+.attack-heli:hover{
+	background-position:0px -272px
+}
+.bomber:hover{
+	background-position:0px -340px
+}
+.fighter:hover{
+	background-position:0px -408px
+}
+.tanker:hover{
+	background-position:0px -475px
+}
+
+/* green */
+.tank{
+	background-position:-204px 0px
+}
+.artillery-rockets{
+	background-position:-204px -69px
+}
+.infantry-vehicle{
+	background-position:-204px -136px
+}
+.anti-aircraft{
+	background-position:-204px -204px
+}
+.armored-car{
+	background-position:-204px -272px
+}
+.truck{
+	background-position:-204px -340px
+}
+.missile{
+	background-position:-204px -408px
+}
+.tank:hover{
+	background-position:-136px 0px
+}
+.artillery-rockets:hover{
+	background-position:-136px -69px
+}
+.infantry-vehicle:hover{
+	background-position:-136px -136px
+}
+.anti-aircraft:hover{
+	background-position:-136px -204px
+}
+.armored-car:hover{
+	background-position:-136px -272px
+}
+.truck:hover{
+	background-position:-136px -340px
+}
+.missile:hover{
+	background-position:-136px -408px
+}
+
+
+/* red */
+.carrier{
+	background-position:-340px -0px
+}
+.battleship{
+	background-position:-340px -69px
+}
+.submarine{
+	background-position:-340px -136px
+}
+.carrier:hover{
+	background-position:-272px -0px
+}
+.battleship:hover{
+	background-position:-272px -69px
+}
+.submarine:hover{
+	background-position:-272px -136px
+}
+
+
+.icon-drone1{
+		background: url(../images/sprite_kemhan.png) no-repeat 0px 0px; 
+        width: 30px; 
+        height: 52px; 
+        zoom:0.5;
+        -moz-transform:scale(0.5);
+        -moz-transform-origin: 0 0;
+        -webkit-transform: scale(0.5); /* Safari And Chrome */
+		-webkit-transform-origin: 0 0;
+}
+

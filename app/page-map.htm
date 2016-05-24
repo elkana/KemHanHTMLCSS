@@ -1,10 +1,21 @@
-<div class="container">
-	<div class="row" id="map" style="padding-top:15px">	
-		<h3>Map here...</h3>
-	</div>
-	<div id="map"></div>
-</div>
-<script>
+<div ng-controller="mapController" style="margin-left:6em;margin-top:2em;width:80%">
+			<div class="row">
+				<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model" style="display:inline-block"></div>	
 
-
-  </script>
+				<div class="input-group changethisone" style="width:220px;color:black;float:right">
+					<input type="text"  class="form-control" placeholder="quick search"/>
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-search"></i>
+					</span>
+				</div>
+			</div>
+			<div class="row" style="position:relative">
+				<img src="/images/map-dummy.jpg" style="width:100%">
+				<!-- point to any position -->
+				<span class="military bomber" style="position:absolute;left:100px;top:20px" ng-click="toggleBomber()"></span>
+				<span class="military submarine" style="position:absolute;left:100px;top:280px"></span>
+				<div>
+					<ng-pop-up option='ngPopupConfig'></ng-pop-up>
+				</div>
+			</div>
+		</div>
