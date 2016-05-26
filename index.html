@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Portal Kementrian Pertahanan</title>
 <!--  bower:css -->
+<link rel="stylesheet" href="bower_components/ng-popup/dist/ngPopup.min.css" />
 <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
 <!--  endbower -->
 
@@ -12,45 +13,132 @@
 
 <link rel="stylesheet" href="styles/default.css" />
 <link rel="stylesheet" href="styles/menu-left.css" />
-<link rel="stylesheet" href="styles/menu-top.css" />
+<link rel="stylesheet" href="styles/icons.css" />
   
 </head>
-<body ng-app="homeApp">
-	<div class="container-fluid">
-		<div ng-include src="'app/header.htm'" ></div>
-		<div ng-include src="'app/menu-top.htm'" ></div>
+<body ng-app="kemhanApp">
 
-		<div class="row"></div>
-		<div class="row">
-			<div class="col-xs-6 col-md-3 col-lg-2">
-				<div ng-include src="'app/menu-left.htm'"></div>
-			</div>
-			<div class="col-xs-6 col-md-9 col-lg-10">
-				<div ng-include src="'app/page-search.htm'"></div>
-			</div>
+	<div class="container-fluid">
+		<div class="header-bg">
+			<div class="row">
+				<div class="col-xs-8 logo">
+					<ul style="padding-left: 10px">
+						<li style="display: inline;list-style-type: none;"><a href="/"><img src="/images/logo.png" width="100" height="auto" /></a></li>
+						<li style="display: inline-block;list-style-type: none;line-height: .2em;vertical-align:middle;padding-left:1em;margin-top:-30px">	
+							<span style="font-family:KemHanFont-Black;color:white"><h2>DEFENSE DATABASE</h2></span>
+							<span style="font-family:KemHanFont-Regular;color:#f4f4f4">Sistem Informasi Pertahanan Negara</span>
+						
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-xs-4 text-right">
+					<div ng-controller="LoginController">
+						<div id="loggedin" class="text-right" style="visibility: hidden">
+							<span style="margin-right:10px">Welcome, Eric</span><span><a href="#">Log Out</a></span>
+						</div>
+
+						<div id="signin" style="visibility: visible">
+							<div class="text-left" style="margin-right:20px;position:absolute;right:0">
+								<span>LOG IN</span>
+								<form id="login" action="/login" method="post" autocomplete="off">
+									<input name="username" placeholder="username" style="width:120px;color:black"></input>
+									<input name="password" placeholder="password" style="width:120px;color:black"></input>
+									<button class="btn-primary">Sign In</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
 		</div>
+
+		<div id="menu-top">
+			<div class="col-xs-4 text-center">
+				<a href="#home">HOME</a>
+				<span class="bar" style="margin-left:-4px;position:absolute;right:0">|</span>
+			</div>
+			<div class="col-xs-4 text-center" >
+				<a href="#search">SEARCH</a>
+				<span class="bar" style="margin-left:-4px;position:absolute;right:0">|</span>
+			</div>	
+			<div class="col-xs-4 text-center" >
+				<a href="#map">MAP</a>
+			</div>	
+		</div>
+
+		<div id="main" class="row">
+			<div ng-view></div>
+		</div>		
 
 	</div>
 	
 	<!--  bower:js -->
-	<script src="bower_components/jquery/dist/jquery.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
-	<script src="bower_components/angular.treeview/angular.treeview.js"></script>
 	<script src="bower_components/lodash/dist/lodash.compat.js"></script>
 	<script src="bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
+	<script src="bower_components/ng-popup/dist/ngPopup.min.js"></script>
 	<!--  endbower -->
 	
 	<!-- inject:js -->
     <!-- endinject -->
 	<script>
   //angular module
-  var myApp = angular.module('homeApp', ['angularTreeview']);
+  var myApp = angular.module('kemhanApp', ['ngRoute', 'angularjs-dropdown-multiselect']);
 
+  myApp.config(['$routeProvider', function($routeProvider){
+		$routeProvider.  
+            when('/home', {
+               templateUrl: 'app/home.html',
+               controller: 'homeController'
+            }).            
+            when('/map', {
+               templateUrl: 'app/map.html',
+               controller: 'MyMapController'
+            }).            
+            otherwise({
+               redirectTo: '/home'
+            });	
+  }]);
+  
+  myApp.controller('LoginController', function($scope, $http){
+  });
+  
+  myApp.controller('MyMapController', function($scope, $http){
+	$scope.hideMenu = true;
+	$scope.example1model = [{id: 1}];
+	$scope.example1data = [ {id: 1, label: "Range"}, {id: 2, label: "Coordinates"}, {id: 3, label: "Wind Direction"}];
+	
+	
+		$scope.ngPopupConfig = {
+		modelName: "myNgPopup",
+		width: 300,
+		height:400,
+		template:"<div></div>",
+		resizable:false,
+		draggable:true,
+		position: { top : 100, left : 500},
+		title : "Detail",
+			hasTitleBar : true,  
+			pinned : false,
+			isShow : true,
+			onOpen : function(){},
+			onClose  : function(){},
+			onDragStart : function(){},
+			onDragEnd : function(){},
+			onResize : function(){}
+	}
+	
+	console.log("xxx:" + $scope.hideMenu);
+  });
+  
   //test controller
-  myApp.controller('homeController', function($scope){
+  myApp.controller('homeController', function($scope, $location){
+	$scope.hideMenu = false;
+
 	$scope.menuleft = [
 		{"group" : "Collection", "subitems" : [
 			{"id": 1, "name" : "Janes", "url" : "#"},
@@ -76,10 +164,10 @@
 		}
 	];
 	
-	 $scope.alert = function(){
+	$scope.alert = function(){
                     alert("Hello");
                 }
-    
+	console.log($location.path());
   });
   
 	</script>

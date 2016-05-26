@@ -1,0 +1,28 @@
+<div class="col-xs-4 col-md-3 col-lg-2">
+
+	<div id="leftpanel">
+		<ul class="nav">
+			<li ng-repeat="menu in menuleft" id="groupitem" data-toggle="collapse" aria-expanded="false" data-target="sub_menu1">{{ menu.group }}
+				<ul class="nav list-group-submenu" id="sub_menu1" role="menu">
+					<li ng-repeat="sub in menu.subitems"><a href="#">{{ sub.name }}</a></li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+</div>	
+
+<div class="col-xs-8 col-md-9 col-lg-10">
+	<div class="container">
+		<div class="row" style="margin-top:20px">
+			<input placeholder="Search..." style="color:black;width:calc(80% - 130px)" ></input>
+			<button class="btn-primary" style="width:90px">Search</button>
+		</div>
+		
+		<div style="box-shadow: 0 18px 18px -15px #000;border: 20px solid #FFF;margin-top: -20px;margin-left: -45px"></div>
+		
+		<div class="row" id="searchResult" style="padding-top:15px">	
+			<h3>Search Result here...</h3>
+		</div>
+	</div>
+</div>
+

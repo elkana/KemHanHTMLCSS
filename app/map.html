@@ -1,0 +1,50 @@
+<div style="margin:0 auto;width:80%;padding-top:30px">
+			<div class="row">
+				<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model" style="display:inline-block"></div>	
+
+				<div class="input-group changethisone" style="width:220px;color:black;float:right">
+					<input type="text"  class="form-control" placeholder="quick search"/>
+					<span class="input-group-addon">
+						<i class="glyphicon glyphicon-search"></i>
+					</span>
+				</div>
+			</div>
+			<div class="row" style="position:relative">
+				<img src="/images/map-dummy.jpg" style="width:100%;height:100%">
+				<!-- point to any position -->
+				<span class="military bomber" style="position:absolute;left:100px;top:20px" ng-click="toggleBomber()"></span>
+				<span class="military submarine" style="position:absolute;left:100px;top:280px"></span>
+				<div>
+					<ng-pop-up option='ngPopupConfig'></ng-pop-up>
+				</div>
+			</div>
+			
+</div>
+
+<script>
+	var cTemplates = {
+				div: $('<div class="layerPanel"></div>'),
+		        table  : $('<table class="customTable" width="100%"></table>'),
+		        colHeader : $('<td colspan="6" class="summary-header"></td>'),
+		        row : $('<tr></tr>'),
+		        data : $('<td></td>'),
+		        dataBlank : $('<td>&nbsp;</td>'),
+		        emptyLine : $('<tr><td colspan="6">&nbsp;</td></tr>'),
+			}
+		;
+
+	function buildLayer(){
+		var div = cTemplates.div.clone(),
+			tableLayer = cTemplates.table.clone(),
+			layerHeader = cTemplates.colHeader.clone()
+		;
+		div.text('Please select a valid schedule.');
+		
+		layerHeader.text("Elkana");
+		layerHeader.appendTo(tableLayer);
+		
+		tableLayer.appendTo(div);
+		$('#popupFare').html(div);
+	}
+
+</script>	
