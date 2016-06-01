@@ -11,7 +11,7 @@ gulp.task('default', function() {
 
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
-  gulp.src('./*.html')
+  gulp.src(['./*.html'])
     .pipe(wiredep({bowerJson: require('./bower.json')}))
 	.pipe(gulp.dest('./'));
 });

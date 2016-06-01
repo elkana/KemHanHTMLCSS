@@ -14,7 +14,7 @@
 }
 
 #leftpanel{
-	background-color:#865e40;
+	background-color:#21254a;
 	color:white;
 	height:100%;min-height:800px;
 }
@@ -27,11 +27,11 @@
 }
 
 #leftpanel .nav > li > a:hover{
-	background-color: #685c54;
+	background-color: #FF0000;
 	color:white;
 }
 
 #leftpanel .nav > li > a:visited{
-	background-color: #685c54;
+	background-color: #1a1a1a;
 	color:white;
 }

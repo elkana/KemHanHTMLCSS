@@ -120,4 +120,14 @@
 }
 
 
+.icon-drone1{
+		background: url(../images/sprite_kemhan.png) no-repeat 0px 0px; 
+        width: 30px; 
+        height: 52px; 
+        zoom:0.5;
+        -moz-transform:scale(0.5);
+        -moz-transform-origin: 0 0;
+        -webkit-transform: scale(0.5); /* Safari And Chrome */
+		-webkit-transform-origin: 0 0;
+}
 
